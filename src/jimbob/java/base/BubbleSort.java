@@ -3,7 +3,7 @@ package jimbob.java.base;
 /**
  * 冒泡排序
  * 
- * @author Administrator
+ * @author KingBob
  */
 public class BubbleSort {
 	public static void main(String[] args) {
@@ -12,6 +12,7 @@ public class BubbleSort {
 		for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i]);
 		}
+		
 		System.out.println("总执行次数："+count);
 	}
 	
