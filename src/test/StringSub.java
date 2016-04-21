@@ -1,0 +1,68 @@
+package test;
+
+public class StringSub
+{
+	public static void main(String[] args)
+	{
+		String sql="		select a1.*, c1.c1                                                                       "
+				+"		  from (select a.*, f_pic, s.categoryid                                                  "
+				+"		          from (select f_id_product as product_id,                                       "
+				+"		                       f_code,                                                           "
+				+"		                       sum(f_pieces - (case                                              "
+				+"		                             when f_pieces_send = -1 then                                "
+				+"		                              0                                                          "
+				+"		                             else                                                        "
+				+"		                              f_pieces_send                                              "
+				+"		                           end)) as pieces,                                              "
+				+"		                       remark_service as remark1,                                        "
+				+"		                       p.f_factory                                                       "
+				+"		                  from order_item o                                                      "
+				+"		                  left join product p                                                    "
+				+"		                    on o.f_id_product = p.f_id                                           "
+				+"		                 where f_id_order in (%s)                                            "
+				+"		                   and (f_revert is null or f_revert != 'sold out' or                    "
+				+"		                       f_price_discount != -1)                                           "
+				+"		                   and f_pieces_send != 0                                                "
+				+"		                   and f_pieces_send != f_pieces                                         "
+				+"		                   and (deng != '1' or deng is null)                                     "
+				+"		                   and (jiesu != '1' or jiesu is null)                                   "
+				+"		                 group by f_id_product, f_code, remark_service, p.f_factory) a           "
+				+"		          left join product b                                                            "
+				+"		            on a.product_id = b.f_id                                                     "
+				+"		          left join supplier s                                                           "
+				+"		            on b.f_factory = s.name                                                      "
+				+"		         order by a.f_factory, substr(a.f_code, 3, 2) desc) a1                           "
+				+"		  left outer join (select a.f_factory, count(distinct product_id) c1                     "
+				+"		                     from (select f_id_product as product_id,                            "
+				+"		                                  f_code,                                                "
+				+"		                                  sum(f_pieces - (case                                   "
+				+"		                                        when f_pieces_send = -1 then                     "
+				+"		                                         0                                               "
+				+"		                                        else                                             "
+				+"		                                         f_pieces_send                                   "
+				+"		                                      end)) as pieces,                                   "
+				+"		                                  p.f_factory,                                           "
+				+"		                                  remark_service                                         "
+				+"		                             from order_item o                                           "
+				+"		                             left join product p                                         "
+				+"		                               on o.f_id_product = p.f_id                                "
+				+"		                            where f_id_order in (%s)                                 "
+				+"		                              and (f_revert is null or f_revert != 'sold out' or         "
+				+"		                                  f_price_discount != -1)                                "
+				+"		                              and f_pieces_send != 0                                     "
+				+"		                              and f_pieces_send != f_pieces                              "
+				+"		                              and (deng != '1' or deng is null)                          "
+				+"		                              and (jiesu != '1' or jiesu is null)                        "
+				+"		                            group by f_id_product,                                       "
+				+"		                                     f_code,                                             "
+				+"		                                     remark_service,                                     "
+				+"		                                     p.f_factory) a                                      "
+				+"		                    group by a.f_factory) c1                                             "
+				+"		    on a1.f_factory = c1.f_factory                                                       "
+				+"		 where categoryid = %d                                                                    "
+				+"		 order by c1.c1, a1.f_factory, substr(a1.f_code, 3, 2)                                   ";
+		sql=String.format(sql, "115454","115454",3);
+		System.out.println(sql);
+	}
+
+}
