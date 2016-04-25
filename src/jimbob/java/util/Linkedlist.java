@@ -1,12 +1,12 @@
 package jimbob.java.util;
 
-public class Link {
+public class Linkedlist {
 	// 内部类
 	private class Node {
-		private String data;
+		private Object data;
 		private Node next;
 
-		public Node(String data) {
+		public Node(Object data) {
 			this.data = data;
 		}
 
@@ -19,7 +19,7 @@ public class Link {
 			}
 		}
 
-		public boolean containsNode(String data) {
+		public boolean containsNode(Object data) {
 			if (data == null) {
 				return false;
 			} else if (data.equals(this.data)) {
@@ -31,25 +31,25 @@ public class Link {
 			}
 		}
 
-		public String getNode(int index) {
-			if (Link.this.foot == index) {
+		public Object getNode(int index) {
+			if (Linkedlist.this.foot == index) {
 				return this.data;
 			} else {
 				foot++;
 				return this.next.getNode(index);
 			}
 		}
-		
-		public void toArrayNode(){
-			Link.this.retArray[Link.this.foot] = this.data;
-			Link.this.foot++;
-			if(this.next!=null){
+
+		public void toArrayNode() {
+			Linkedlist.this.retArray[Linkedlist.this.foot] = this.data;
+			Linkedlist.this.foot++;
+			if (this.next != null) {
 				this.next.toArrayNode();
 			}
 		}
 
-		public void setNode(int index, String data) {
-			if (Link.this.foot == index) {
+		public void setNode(int index, Object data) {
+			if (Linkedlist.this.foot == index) {
 				this.data = data;
 			} else {
 				foot++;
@@ -57,10 +57,10 @@ public class Link {
 			}
 		}
 
-		public boolean removeNode(Node previous, String data) {
+		public boolean removeNode(Node previous, Object data) {
 			if (data.equals(this.data)) {
 				previous.next = this.next;
-				Link.this.count--;
+				Linkedlist.this.count--;
 			} else {
 				this.next.removeNode(this, data);
 				return false;
@@ -72,10 +72,10 @@ public class Link {
 	private Node root;
 	private int count = 0;
 	private int foot;
-	private String[] retArray;
+	private Object[] retArray;
 
 	// 增加数据
-	public boolean add(String data) {
+	public boolean add(Object data) {
 		if (data != null) {
 			Node newNode = new Node(data);
 			if (this.root == null) {
@@ -99,12 +99,12 @@ public class Link {
 		return this.count;
 	}
 
-	public boolean contains(String data) {
+	public boolean contains(Object data) {
 
 		return this.root.containsNode(data);
 	}
 
-	public String get(int index) {
+	public Object get(int index) {
 		if (index >= this.count) {
 			return null;
 		}
@@ -113,7 +113,7 @@ public class Link {
 	}
 
 	// 修改
-	public boolean set(int index, String data) {
+	public boolean set(int index, Object data) {
 		if (index > this.count || data == null) {
 			return false;
 		}
@@ -122,38 +122,33 @@ public class Link {
 		return true;
 	}
 
-	public boolean remove(String data) {
+	public boolean remove(Object data) {
 		if (data.equals(this.root.data)) {
-			this.root = this.root.next;
-			this.count--;
+			if (root.next != null) {
+				this.root = this.root.next;
+				this.count--;
+			} else {
+				this.root = null;
+				this.count = 0;
+			}
 			return true;
 		} else {
-			return this.root.next.removeNode(this.root, data);
+			if (this.root.next != null)
+				return this.root.next.removeNode(this.root, data);
+			else
+				return false;
 		}
-
 	}
 
-	public String[] toArray() {
+	public Object[] toArray() {
 		if (this.root == null) {
 			return null;
 		} else {
-			this.foot=0;
-			this.retArray = new String[this.count];
+			this.foot = 0;
+			this.retArray = new Object[this.count];
 			this.root.toArrayNode();
 			return this.retArray;
 		}
 	}
 
-	public static void main(String[] args) {
-		Link link = new Link();
-		link.add("Hello");
-		link.add("world");
-		link.add("你好");
-		link.add("世界");
-		link.remove("世界");
-		String[] array= link.toArray();
-		for (int i = 0; i < array.length; i++) {
-			System.out.println(array[i]);
-		}
-	}
 }

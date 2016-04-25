@@ -1,6 +1,6 @@
 package jimbob.java.util;
 
-public class LinkedList {
+public class Linked{
 	// ¸ù½Úµã
 	private Node root;
 

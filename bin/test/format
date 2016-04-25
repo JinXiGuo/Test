@@ -1,0 +1,19 @@
+"	select a.f_factory,a.pieces,b.categoryid from(        "
++"	select b.f_factory, sum(f_pieces) as pieces           "
++"	  from (select f_id_product, f_pieces                 "
++"	          from order_item a                           "
++"	         where a.f_id_order in (115460)               "
++"	           and a.f_pieces > 0                         "
++"	           and a.F_PRICE_DISCOUNT > 0                 "
++"	           and a.f_pieces_send != 0                   "
++"	           and a.f_pieces_send != f_pieces            "
++"	           and (a.jiesu != '1' or a.jiesu is null)) a "
++"	  left join product b                                 "
++"	    on a.f_id_product = b.f_id                        "
++"	 group by b.f_factory) a,supplier b                   "
++"	 where a.f_factory=b.name          			          "
++"	order by length(a.f_factory),pieces desc              "
+
+
+
+myjsp.r("fid")

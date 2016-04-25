@@ -1,4 +1,9 @@
 package singleton;
+/**
+ * µ¥ÀýÄ£Ê½
+ * @author Administrator
+ *
+ */
 
 public class SingletonTest {  
 	  
