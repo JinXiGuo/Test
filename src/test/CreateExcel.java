@@ -2,7 +2,8 @@ package test;
 import java.io.File;
 import java.net.URL;
 
-import jxl.CellView;
+import org.apache.commons.io.FileUtils;
+
 import jxl.Workbook;
 import jxl.format.UnderlineStyle;
 import jxl.write.Label;
@@ -11,8 +12,6 @@ import jxl.write.WritableFont;
 import jxl.write.WritableImage;
 import jxl.write.WritableSheet;
 import jxl.write.WritableWorkbook;
-
-import org.apache.commons.io.FileUtils;
 public class CreateExcel
 {
 	public static void main(String args[])

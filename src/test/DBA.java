@@ -89,6 +89,7 @@ public class DBA
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public String parseTable()
 	{
 
@@ -134,6 +135,7 @@ public class DBA
 		return re1.toString();
 	}
 
+	@SuppressWarnings("unused")
 	public String parseXML()
 	{
 		String str1 = "";
