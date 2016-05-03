@@ -11,22 +11,22 @@ public class SocketClientDemo {
 		Scanner sc = new Scanner(client.getInputStream());
 		// 接受用户输入
 		Scanner in = new Scanner(System.in);
-		//向服务器发送信息的流
-		PrintStream out=new PrintStream(client.getOutputStream());
+		// 向服务器发送信息的流
+		PrintStream out = new PrintStream(client.getOutputStream());
 		// 设置分隔符
 		sc.useDelimiter("\n");
 		in.useDelimiter("\n");
-		while(true){
+		while (true) {
 			System.out.println("请输入要发送的数据");
 			if (in.hasNext()) {
-				String str=in.next().trim();
+				String str = in.next().trim();
 				out.println(str);
-				if(str.equalsIgnoreCase("exit")){
+				if (str.equalsIgnoreCase("exit")) {
 					System.out.println("客户端退出成功");
 					break;
 				}
-				if(sc.hasNext()){
-					System.out.println("-->"+sc.next());
+				if (sc.hasNext()) {
+					System.out.println("-->" + sc.next());
 				}
 			}
 		}
