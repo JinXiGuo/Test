@@ -1,5 +1,14 @@
+/WriteExcelLog.class
+/adapter/
+/bridge/
+/builder/
+/composite/
+/decorator/
+/factory/
+/file/
 /jimbob/
+/prototype/
+/proxy/
+/singleton/
 /test/
-/Messages.properties
-/Messages_zh_CN.properties
-/Messages_en_US.properties
+/util/
