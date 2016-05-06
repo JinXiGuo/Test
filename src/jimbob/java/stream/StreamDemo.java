@@ -13,8 +13,8 @@ public class StreamDemo {
 		list.add("Ios");
 		list.add("jsp");
 		list.add("ORACLE");
-		// list.forEach(System.out::println);
-		Stream<String> stream = list.stream();
+		//list.forEach(System.out::println);
+		//Stream<String> stream = list.stream();
 		// 取消重复数据,不改变list的值
 		// System.out.println(stream.distinct().count());
 		// List<String> newList = stream.distinct().collect(Collectors.toList());
@@ -31,11 +31,11 @@ public class StreamDemo {
 		// newList.forEach(System.out::println);
 
 		// 匹配过程，进行数据查询
-		Predicate<String> p1=(x)->x.contains("Ios");
-		Predicate<String> p2=(x)->x.contains("jsp");
-		if(stream.anyMatch(p1.or(p2))){
-			System.out.println("存在");
-		}
+		// Predicate<String> p1=(x)->x.contains("Ios");
+		// Predicate<String> p2=(x)->x.contains("jsp");
+		// if(stream.anyMatch(p1.or(p2))){
+		// System.out.println("存在");
+		// }
 
 	}
 }
