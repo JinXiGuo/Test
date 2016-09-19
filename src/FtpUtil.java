@@ -9,6 +9,7 @@ import org.apache.commons.net.ftp.FTPReply;
 
 public class FtpUtil
 {
+	
 	public static boolean uploadFile(String url, int port, String username, String password, String path, String filename, InputStream input)
 	{
 		boolean success = false;
@@ -16,9 +17,9 @@ public class FtpUtil
 		try
 		{
 			int reply;
-			ftp.connect(url, port);// Á¬½ÓFTP·şÎñÆ÷
-			// Èç¹û²ÉÓÃÄ¬ÈÏ¶Ë¿Ú£¬¿ÉÒÔÊ¹ÓÃftp.connect(url)µÄ·½Ê½Ö±½ÓÁ¬½ÓFTP·şÎñÆ÷
-			ftp.login(username, password);// µÇÂ¼
+			ftp.connect(url, port);// è¿æ¥FTPæœåŠ¡å™¨
+			// å¦‚æœé‡‡ç”¨é»˜è®¤ç«¯å£ï¼Œå¯ä»¥ä½¿ç”¨ftp.connect(url)çš„æ–¹å¼ç›´æ¥è¿æ¥FTPæœåŠ¡å™¨
+			ftp.login(username, password);// ç™»å½•
 			ftp.setFileType(FTPClient.BINARY_FILE_TYPE);
 			reply = ftp.getReplyCode();
 			if (!FTPReply.isPositiveCompletion(reply))

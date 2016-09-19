@@ -9,7 +9,7 @@ public class ReadFile
 		String path = "D:/webserver_gouwu_adm/webapps/ROOT/excel";
 		File file = new File(path);
 		File[] tempList = file.listFiles();
-		System.out.println("¸ÃÄ¿Â¼ÏÂ¶ÔÏó¸öÊý£º" + tempList.length);
+		System.out.println("è¯¥ç›®å½•ä¸‹å¯¹è±¡ä¸ªæ•°ï¼š" + tempList.length);
 		Calendar cal = Calendar.getInstance(); 
 		long time ;
 		SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd H:m:s");

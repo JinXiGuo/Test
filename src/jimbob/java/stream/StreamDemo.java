@@ -2,8 +2,6 @@ package jimbob.java.stream;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Stream;
 
 public class StreamDemo {
 	public static void main(String[] args) {
@@ -15,14 +13,14 @@ public class StreamDemo {
 		list.add("ORACLE");
 		//list.forEach(System.out::println);
 		//Stream<String> stream = list.stream();
-		// È¡ÏûÖØ¸´Êı¾İ,²»¸Ä±älistµÄÖµ
+		// å–æ¶ˆé‡å¤æ•°æ®,ä¸æ”¹å˜listçš„å€¼
 		// System.out.println(stream.distinct().count());
 		// List<String> newList = stream.distinct().collect(Collectors.toList());
 		// List<String> newList = stream.distinct()
 		// .map((x)->x.toLowerCase())
 		// .filter((x)->x.contains("a"))
 		// .collect(Collectors.toList());
-		// ¿ÉÒÔ½øĞĞ·ÖÒ³
+		// å¯ä»¥è¿›è¡Œåˆ†é¡µ
 		// List<String> newList = stream.distinct()
 		// .map((x)->x.toLowerCase())
 		// .skip(2)
@@ -30,11 +28,11 @@ public class StreamDemo {
 		// .collect(Collectors.toList());
 		// newList.forEach(System.out::println);
 
-		// Æ¥Åä¹ı³Ì£¬½øĞĞÊı¾İ²éÑ¯
+		// åŒ¹é…è¿‡ç¨‹ï¼Œè¿›è¡Œæ•°æ®æŸ¥è¯¢
 		// Predicate<String> p1=(x)->x.contains("Ios");
 		// Predicate<String> p2=(x)->x.contains("jsp");
 		// if(stream.anyMatch(p1.or(p2))){
-		// System.out.println("´æÔÚ");
+		// System.out.println("å­˜åœ¨");
 		// }
 
 	}
