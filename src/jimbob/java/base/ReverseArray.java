@@ -1,7 +1,7 @@
 package jimbob.java.base;
 
 /**
- * Êý×é×ªÖÃ
+ * æ•°ç»„è½¬ç½®
  * 
  * @author Administrator
  */
