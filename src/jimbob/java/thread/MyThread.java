@@ -12,10 +12,10 @@ class Work {
 	}
 }
 
-public class MyThread3 extends Thread {
+public class MyThread extends Thread {
 	private Work work;
 
-	public MyThread3(Work work) {
+	public MyThread(Work work) {
 		this.work = work;
 	}
 
@@ -31,7 +31,7 @@ public class MyThread3 extends Thread {
 	}
 
 	public static void main(String[] args) {
-		Thread thread = new MyThread3(new Work());
+		Thread thread = new MyThread(new Work());
 		thread.start();
 	}
 }
